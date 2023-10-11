@@ -1,0 +1,39 @@
+[2023-10-09T21:11:33.086+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: raddit_data_pipeline.comment_data_preparation manual__2023-10-09T21:11:04.419599+00:00 [queued]>
+[2023-10-09T21:11:33.108+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: raddit_data_pipeline.comment_data_preparation manual__2023-10-09T21:11:04.419599+00:00 [queued]>
+[2023-10-09T21:11:33.110+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-09T21:11:33.136+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): comment_data_preparation> on 2023-10-09 21:11:04.419599+00:00
+[2023-10-09T21:11:33.151+0000] {standard_task_runner.py:57} INFO - Started process 201 to run task
+[2023-10-09T21:11:33.160+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'raddit_data_pipeline', 'comment_data_preparation', 'manual__2023-10-09T21:11:04.419599+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/raddit.py', '--cfg-path', '/tmp/tmpc9kjzrwv']
+[2023-10-09T21:11:33.168+0000] {standard_task_runner.py:85} INFO - Job 7: Subtask comment_data_preparation
+[2023-10-09T21:11:33.266+0000] {task_command.py:415} INFO - Running <TaskInstance: raddit_data_pipeline.comment_data_preparation manual__2023-10-09T21:11:04.419599+00:00 [running]> on host 4e554196f202
+[2023-10-09T21:11:33.407+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='MSc DS-7029-20275335' AIRFLOW_CTX_DAG_ID='raddit_data_pipeline' AIRFLOW_CTX_TASK_ID='comment_data_preparation' AIRFLOW_CTX_EXECUTION_DATE='2023-10-09T21:11:04.419599+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-10-09T21:11:04.419599+00:00'
+[2023-10-09T21:11:33.438+0000] {python.py:194} INFO - Done. Returned value was:     source                                     url  ... replies extra
+0   Reddit  https://www.reddit.com/gallery/17145a8  ...       0      
+1   Reddit  https://www.reddit.com/gallery/17145a8  ...       0      
+2   Reddit     https://i.redd.it/f7i6prs5qwrb1.jpg  ...       0      
+3   Reddit     https://i.redd.it/f7i6prs5qwrb1.jpg  ...       0      
+4   Reddit     https://i.redd.it/f7i6prs5qwrb1.jpg  ...       0      
+5   Reddit     https://i.redd.it/pziasu7zsorb1.jpg  ...       0      
+6   Reddit     https://i.redd.it/pziasu7zsorb1.jpg  ...       0      
+7   Reddit     https://i.redd.it/pziasu7zsorb1.jpg  ...       0      
+8   Reddit     https://i.redd.it/lf36bbhbvirb1.jpg  ...       0      
+9   Reddit     https://i.redd.it/lf36bbhbvirb1.jpg  ...       0      
+10  Reddit     https://i.redd.it/cf69li8jcgrb1.jpg  ...       0      
+11  Reddit  https://www.reddit.com/gallery/16vv0j2  ...       0      
+12  Reddit  https://www.reddit.com/gallery/16vv0j2  ...       0      
+13  Reddit     https://i.redd.it/lybk3cnzr8rb1.jpg  ...       0      
+14  Reddit     https://i.redd.it/lybk3cnzr8rb1.jpg  ...       0      
+15  Reddit     https://i.redd.it/tmjap89418rb1.jpg  ...       0      
+16  Reddit     https://i.redd.it/tmjap89418rb1.jpg  ...       0      
+17  Reddit     https://i.redd.it/tmjap89418rb1.jpg  ...       0      
+18  Reddit     https://i.redd.it/tmjap89418rb1.jpg  ...       0      
+19  Reddit     https://i.redd.it/tmjap89418rb1.jpg  ...       0      
+20  Reddit     https://i.redd.it/0875ysn5d8rb1.jpg  ...       0      
+21  Reddit     https://i.redd.it/0875ysn5d8rb1.jpg  ...       0      
+22  Reddit     https://i.redd.it/x3ybszyngpqb1.png  ...       0      
+23  Reddit     https://i.redd.it/x3ybszyngpqb1.png  ...       0      
+
+[24 rows x 8 columns]
+[2023-10-09T21:11:33.534+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=raddit_data_pipeline, task_id=comment_data_preparation, execution_date=20231009T211104, start_date=20231009T211133, end_date=20231009T211133
+[2023-10-09T21:11:33.581+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-09T21:11:33.627+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

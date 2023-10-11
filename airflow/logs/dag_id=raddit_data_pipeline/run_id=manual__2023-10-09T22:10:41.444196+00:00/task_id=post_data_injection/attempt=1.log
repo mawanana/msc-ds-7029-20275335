@@ -1,0 +1,14 @@
+[2023-10-09T22:25:43.093+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: raddit_data_pipeline.post_data_injection manual__2023-10-09T22:10:41.444196+00:00 [queued]>
+[2023-10-09T22:25:43.113+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: raddit_data_pipeline.post_data_injection manual__2023-10-09T22:10:41.444196+00:00 [queued]>
+[2023-10-09T22:25:43.116+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-09T22:25:43.147+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): post_data_injection> on 2023-10-09 22:10:41.444196+00:00
+[2023-10-09T22:25:43.162+0000] {standard_task_runner.py:57} INFO - Started process 123 to run task
+[2023-10-09T22:25:43.172+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'raddit_data_pipeline', 'post_data_injection', 'manual__2023-10-09T22:10:41.444196+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/raddit.py', '--cfg-path', '/tmp/tmpoczcdfof']
+[2023-10-09T22:25:43.184+0000] {standard_task_runner.py:85} INFO - Job 34: Subtask post_data_injection
+[2023-10-09T22:25:43.331+0000] {task_command.py:415} INFO - Running <TaskInstance: raddit_data_pipeline.post_data_injection manual__2023-10-09T22:10:41.444196+00:00 [running]> on host 6a31ab7c12a8
+[2023-10-09T22:25:43.672+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='MSc DS-7029-20275335' AIRFLOW_CTX_DAG_ID='raddit_data_pipeline' AIRFLOW_CTX_TASK_ID='post_data_injection' AIRFLOW_CTX_EXECUTION_DATE='2023-10-09T22:10:41.444196+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-10-09T22:10:41.444196+00:00'
+[2023-10-09T22:25:43.830+0000] {base.py:73} INFO - Using connection ID 'mysql_conn_id' for task execution.
+[2023-10-09T22:25:43.893+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-10-09T22:25:43.922+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=raddit_data_pipeline, task_id=post_data_injection, execution_date=20231009T221041, start_date=20231009T222543, end_date=20231009T222543
+[2023-10-09T22:25:44.007+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-09T22:25:44.078+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

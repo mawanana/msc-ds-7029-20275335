@@ -1,0 +1,70 @@
+CREATE SCHEMA `social_media_db`;
+
+CREATE TABLE social_media_db.post_cleaned_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    batch_id INT,
+	source VARCHAR(255),
+    url VARCHAR(500),
+    title VARCHAR(500),
+    views INT,
+    likes INT,
+    dislikes INT,
+    num_comments INT,
+    description TEXT,
+    submission_time DATETIME,
+	author_name VARCHAR(255),
+    create_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE social_media_db.comments_cleaned_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+	batch_id INT,
+	source VARCHAR(255),
+    url VARCHAR(500),
+    comment TEXT,
+    author VARCHAR(255),
+    likes INT,
+    dislikes INT,
+    replies INT,
+	extra VARCHAR(255),
+    create_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE social_media_db.comments_processed_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+	batch_id INT,
+    source VARCHAR(255),
+    comment_text VARCHAR(500),
+    likes INT,
+    shares INT,
+    replies INT,
+    popularity_score FLOAT,
+    normalized_score FLOAT,
+    percentage_likes FLOAT,
+    percentage_shares FLOAT,
+    percentage_replies FLOAT,
+    weight_likes FLOAT,
+    weight_shares FLOAT,
+    weight_replies FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE social_media_db.popularity_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    batch_id INT,
+	source VARCHAR(255),
+    url VARCHAR(500),
+	submission_time DATETIME,
+    title VARCHAR(500),
+    views INT,
+    likes INT,
+    num_comments INT,
+    PercentageViews FLOAT,
+    PercentageLikes FLOAT,
+    PercentageComments FLOAT,
+    WeightViews FLOAT,
+    WeightLikes FLOAT,
+    WeightComments FLOAT,
+    PopularityScore FLOAT,
+    NormalizedScore FLOAT
+);

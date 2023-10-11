@@ -1,0 +1,32 @@
+/* styles.css */
+/* Define a class for the tab buttons */
+.tab-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Add background images to the tab buttons */
+.youtube-tab .tab-button {
+    background-image: url('/assets/youtube_logo.png'); /* Path to the YouTube logo image */
+    background-size: 24px; /* Adjust the size as needed */
+    background-repeat: no-repeat;
+}
+
+.reddit-tab .tab-button {
+    background-image: url('/assets/reddit_logo.png'); /* Path to the Reddit logo image */
+    background-size: 24px; /* Adjust the size as needed */
+    background-repeat: no-repeat;
+}
+
+.popularity-tab .tab-button {
+    background-image: url('/assets/popularity_logo.png'); /* Path to the Popularity logo image */
+    background-size: 24px; /* Adjust the size as needed */
+    background-repeat: no-repeat;
+}
+
+/* Style the tab text */
+.tab-text {
+    margin-left: 10px;
+}
