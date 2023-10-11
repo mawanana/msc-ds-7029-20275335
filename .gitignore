@@ -1,0 +1,16 @@
+
+
+# virtualenv
+docker-airflow/venv/
+.idea/
+.DS_Store
+.idea/workspace.xml
+
+
+
+# logs
+airflow/logs
+airflow/plugins/includes/__pycache__
+airflow/__pycache__
+
+venv/
