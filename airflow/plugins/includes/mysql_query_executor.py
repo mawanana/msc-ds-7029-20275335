@@ -163,3 +163,56 @@ def insert_post_data(dataframe, table_name):
         # Close cursor and database connection
         cursor.close()
         mysql_connection.close()
+
+def insert_channel_data(dataframe, table_name):
+  
+    # Create a MySqlHook instance to get the MySQL connection
+    mysql_hook = MySqlHook("mysql_conn_id")
+    mysql_connection = mysql_hook.get_conn()
+
+    try:
+        # Create a cursor for database operations
+        cursor = mysql_connection.cursor()
+
+        # Define the SQL query to retrieve the maximum batch_id
+        sql_query = "SELECT MAX(batch_id) AS max_batch_id FROM social_media_db.youtube_channel_data;"
+    
+        # Execute the query
+        cursor.execute(sql_query)
+
+        # Fetch the result (maximum batch_id)
+        max_batch_id = cursor.fetchone()[0]
+        if max_batch_id is None:
+            max_batch_id = 1
+        else:
+            max_batch_id += 1  # Increment the max_batch_id by 1
+
+        # Iterate over DataFrame rows and insert data into the MySQL table
+        for _, row in dataframe.iterrows():
+            insert_query = """
+                INSERT INTO youtube_channel_data (
+                    batch_id, country, subscribers, videos, likes, dislikes, shares, comments,
+                    views, join_date
+                ) VALUES (
+                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                )
+                """
+            values = (
+                max_batch_id, row['country'], row['subscribers'], row['videos'], row['likes'], row['dislikes'],
+                row['shares'], row['comments'], row['views'], row['join_date'],
+            )
+            # columns = ['country', 'subscribers', 'videos', 'likes', 'dislikes', 'shares', 'comments', 'views', 'join_date']
+
+            cursor.execute(insert_query, values)
+
+        # Commit the changes to the database
+        mysql_connection.commit()
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
+
+    finally:
+        # Close cursor and database connection
+        cursor.close()
+        mysql_connection.close()
+

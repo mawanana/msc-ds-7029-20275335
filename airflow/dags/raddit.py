@@ -23,7 +23,7 @@ default_args = {
 
 # Create the Airflow DAG
 dag = DAG(
-    'raddit_data_pipeline',
+    'raddit_data_pipeline000',
     default_args=default_args,
     description='DAG for raddit pipeline',
     schedule_interval='0 0 * * 1',  # Set your desired schedule interval or None
@@ -50,7 +50,7 @@ def scrape_data():
     subreddit_name = 'FormerPizzaHuts'
     
     # Number of posts to scrape
-    num_posts = 10  # Adjust as needed
+    num_posts = 5000  # Adjust as needed
     
     # Post ID to start from (from the URL you provided)
     after_post_id = 't3_10qoih0'  # Replace with the actual post ID

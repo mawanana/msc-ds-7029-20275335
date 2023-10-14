@@ -27,7 +27,7 @@ from includes.selenium_webdriver import get_selenium_webdriver
 
 
 # Set your API key obtained from the Google Cloud Console
-api_key = "AIzaSyD-uO1hyk2x-gzoWrdByiwFqaCZuS1wwF8"  # Replace with your actual API key
+api_key = "AIzaSyD-uO1hyk2x-gzoWrdByiwFqaCZuS1wwF8"  
 
 # Create a YouTube Data API client
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=api_key)
@@ -57,121 +57,129 @@ dag = DAG(
 
 # Task 1: scraping video list on chennel
 def scrape_video_list():
-
-    # # Replace with the URL of the YouTube channel you want to scrape
+    # Replace with the URL of the YouTube channel you want to scrape
     # channel_urls = [['youtube-USA', 'https://www.youtube.com/@pizzahut'], ['youtube-UK', 'https://www.youtube.com/user/pizzahutdeliveryuk'], ['youtube-India', 'https://www.youtube.com/channel/UCOBjFMnb_0rfwV0plAYXsfQ'], ['youtube-SriLanka', 'https://www.youtube.com/channel/UCixnmEcCoeqdrwyh9B3NkQw'],['youtube-SouthAfrica','https://www.youtube.com/channel/UCWvzJ3CnkDukCcEfg4rfnyg']]
+    channel_urls = [['youtube-USA', 'https://www.youtube.com/@pizzahut'], ['youtube-UK', 'https://www.youtube.com/user/pizzahutdeliveryuk']]
 
-    # # Initialize a 2D list to store the unique URLs
-    # unique_url_list = []
+    
+    # Initialize a 2D list to store the unique URLs
+    unique_url_list = []
 
-    # # for index, channel_url in enumerate(channel_urls):
-    # for channel_url in channel_urls:
-    #     print(channel_url[0], '-----', channel_url[1])
+    # for index, channel_url in enumerate(channel_urls):
+    for channel_url in channel_urls:
+        print(channel_url[0], '-----', channel_url[1])
         
-    #     # Initialize the Chrome WebDriver (you may need to specify the path to chromedriver.exe)
-    #     driver = get_selenium_webdriver(channel_url[1])
+        # Initialize the Chrome WebDriver (you may need to specify the path to chromedriver.exe)
+        driver = get_selenium_webdriver(channel_url[1])
         
-    #     # Open the channel URL
-    #     driver.get(channel_url[1])
-    #     driver.implicitly_wait(5)
+        # Open the channel URL
+        driver.get(channel_url[1])
+        driver.implicitly_wait(5)
         
-    #     # Find the element with the specified attributes
-    #     element = driver.find_element(By.XPATH, '//*[@id="tabsContent"]/tp-yt-paper-tab[2]')
+        # Find the element with the specified attributes
+        element = driver.find_element(By.XPATH, '//*[@id="tabsContent"]/tp-yt-paper-tab[2]')
         
-    #     # Click the element
-    #     element.click()
+        # Click the element
+        element.click()
         
-    #     # Scroll down to load comments (you may need to adjust the number of scrolls)
-    #     for _ in range(10):
-    #         driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.END)
-    #         time.sleep(2)  # Adjust the sleep duration as needed
+        # Scroll down to load comments (you may need to adjust the number of scrolls)
+        for _ in range(10):
+            driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.END)
+            time.sleep(2)  # Adjust the sleep duration as needed
         
-    #     # Find elements with id="thumbnail" and class="yt-simple-endpoint inline-block style-scope ytd-thumbnail"
-    #     video_elements = driver.find_elements(By.XPATH, '//a[@id="thumbnail" and contains(@class, "yt-simple-endpoint inline-block style-scope ytd-thumbnail")]')
+        # Find elements with id="thumbnail" and class="yt-simple-endpoint inline-block style-scope ytd-thumbnail"
+        video_elements = driver.find_elements(By.XPATH, '//a[@id="thumbnail" and contains(@class, "yt-simple-endpoint inline-block style-scope ytd-thumbnail")]')
         
-    #     # Extract the video URLs
-    #     video_urls = [element.get_attribute("href") for element in video_elements]
+        # Extract the video URLs
+        video_urls = [element.get_attribute("href") for element in video_elements]
 
-    #     # Iterate through the video URLs and add them to the unique_url_list
-    #     for url in video_urls:
-    #         # Check if the URL is not None and not already in the list
-    #         if url is not None and url not in [item[0] for item in unique_url_list]:
-    #             unique_url_list.append([channel_url[0], url])
+        # Iterate through the video URLs and add them to the unique_url_list
+        for url in video_urls:
+            # Check if the URL is not None and not already in the list
+            if url is not None and url not in [item[0] for item in unique_url_list]:
+                unique_url_list.append([channel_url[0], url])
         
-    #     # Close the WebDriver
-    #     driver.quit()
+        # Close the WebDriver
+        driver.quit()
     print(unique_url_list)
-    unique_url_list = [['source01', 'https://www.youtube.com/watch?v=Ti2tgvSP-g8'], ['source02', 'https://www.youtube.com/watch?v=PpzaYg_ABQ0']]
+
     return unique_url_list
 
 # Task 2: Data scraping (Function to extract video information for a given URL and source)
 def scrape_data(**kwargs):
-    video_lists = kwargs['task_instance'].xcom_pull(task_ids='scrape_video_list')
-   # Function to extract video information for a given URL and source
-    # Initialize lists for video data and comment data
+    unique_url_list = kwargs['task_instance'].xcom_pull(task_ids='scrape_video_list')
     video_data = []
     comment_data = []
 
-    for video_info in video_lists:
+    for video_info in unique_url_list:
+        print("-----------@@@@@@---------------------", video_info)
+        print(unique_url_list)
         video_source, video_url = video_info
         video_id = video_url.split("v=")[1]
 
-        # Retrieve video details
-        video_response = youtube.videos().list(
-            part="snippet,statistics",
-            id=video_id
-        ).execute()
+        try:
+            # Retrieve video details
+            video_response = youtube.videos().list(
+                part="snippet,statistics",
+                id=video_id
+            ).execute()
 
-        video_info = video_response["items"][0]
+            video_info = video_response["items"][0]
 
-        # Extract desired information
-        video_title = video_info["snippet"]["title"]
-        video_description = video_info["snippet"]["description"]
-        video_views = video_info["statistics"]["viewCount"]
-        
-        # Check if the "likeCount" field exists
-        if "likeCount" in video_info["statistics"]:
-            video_likes = video_info["statistics"]["likeCount"]
-        else:
-            video_likes = 0  # Set to 0 if the field does not exist
-        
-        # Check if the "dislikeCount" field exists
-        if "dislikeCount" in video_info["statistics"]:
-            video_dislikes = video_info["statistics"]["dislikeCount"]
-        else:
-            video_dislikes = 0  # Set to 0 if the field does not exist
+            # Extract desired information
+            video_title = video_info["snippet"]["title"]
+            video_description = video_info["snippet"]["description"]
+            video_views = video_info["statistics"]["viewCount"]
 
-        # Extract number of comments
-        video_comment_response = youtube.commentThreads().list(
-            part="snippet",
-            videoId=video_id,
-            textFormat="plainText"
-        ).execute()
-        
-        num_comments = video_comment_response["pageInfo"]["totalResults"]
-        
-        # Extract submission time and author name
-        video_submission_date = video_info["snippet"]["publishedAt"]
-        author_name = video_info["snippet"]["channelTitle"]
+            # Check if the "likeCount" field exists
+            if "likeCount" in video_info["statistics"]:
+                video_likes = video_info["statistics"]["likeCount"]
+            else:
+                video_likes = 0  # Set to 0 if the field does not exist
 
-        # Extract comments and append them to comment_data
-        for comment in video_comment_response["items"]:
-            comment_text = comment["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
-            comment_data.append([video_source, video_url, comment_text])
+            # Check if the "dislikeCount" field exists
+            if "dislikeCount" in video_info["statistics"]:
+                video_dislikes = video_info["statistics"]["dislikeCount"]
+            else:
+                video_dislikes = 0  # Set to 0 if the field does not exist
 
-        # Append video data to video_data
-        video_data.append([
-            video_source,
-            video_url,
-            video_title,
-            video_views,
-            video_likes,
-            video_dislikes,
-            num_comments,
-            video_description,
-            video_submission_date,
-            author_name
-        ])
+            # Extract number of comments
+            video_comment_response = youtube.commentThreads().list(
+                part="snippet",
+                videoId=video_id,
+                textFormat="plainText"
+            ).execute()
+
+            num_comments = video_comment_response["pageInfo"]["totalResults"]
+
+            # Extract submission time and author name
+            video_submission_date = video_info["snippet"]["publishedAt"]
+            author_name = video_info["snippet"]["channelTitle"]
+
+            # Extract comments and append them to comment_data
+            for comment in video_comment_response["items"]:
+                comment_text = comment["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
+                comment_data.append([video_source, video_url, comment_text])
+
+            # Append video data to video_data
+            video_data.append([
+                video_source,
+                video_url,
+                video_title,
+                video_views,
+                video_likes,
+                video_dislikes,
+                num_comments,
+                video_description,
+                video_submission_date,
+                author_name
+            ])
+        except HttpError as e:
+            if e.resp.status == 403 and "commentsDisabled" in str(e):
+                print(f"Skipping video with disabled comments: {video_url}")
+                continue  # Skip to the next URL
+            else:
+                raise e
 
     return video_data, comment_data
 
