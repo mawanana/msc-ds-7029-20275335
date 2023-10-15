@@ -1,0 +1,148 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "f8010f24-c71d-441a-80d7-e541295352e7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/var/folders/y3/k251xs_s3c3dgw01ys3t1_wm0000gq/T/ipykernel_16538/605813045.py:2: UserWarning: \n",
+      "The dash_core_components package is deprecated. Please replace\n",
+      "`import dash_core_components as dcc` with `from dash import dcc`\n",
+      "  import dash_core_components as dcc\n",
+      "/var/folders/y3/k251xs_s3c3dgw01ys3t1_wm0000gq/T/ipykernel_16538/605813045.py:3: UserWarning: \n",
+      "The dash_html_components package is deprecated. Please replace\n",
+      "`import dash_html_components as html` with `from dash import html`\n",
+      "  import dash_html_components as html\n",
+      "Address already in use\n",
+      "Port 8050 is in use by another program. Either identify and stop that program, or start the server with a different port.\n"
+     ]
+    },
+    {
+     "ename": "AttributeError",
+     "evalue": "'tuple' object has no attribute 'tb_frame'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mOSError\u001b[0m                                   Traceback (most recent call last)",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/werkzeug/serving.py:710\u001b[0m, in \u001b[0;36mBaseWSGIServer.__init__\u001b[0;34m(self, host, port, app, handler, passthrough_errors, ssl_context, fd)\u001b[0m\n\u001b[1;32m    709\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[0;32m--> 710\u001b[0m     \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mserver_bind\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    711\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mserver_activate()\n",
+      "File \u001b[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/server.py:137\u001b[0m, in \u001b[0;36mHTTPServer.server_bind\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m    136\u001b[0m \u001b[38;5;250m\u001b[39m\u001b[38;5;124;03m\"\"\"Override server_bind to store the server name.\"\"\"\u001b[39;00m\n\u001b[0;32m--> 137\u001b[0m \u001b[43msocketserver\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mTCPServer\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mserver_bind\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m)\u001b[49m\n\u001b[1;32m    138\u001b[0m host, port \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mserver_address[:\u001b[38;5;241m2\u001b[39m]\n",
+      "File \u001b[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socketserver.py:466\u001b[0m, in \u001b[0;36mTCPServer.server_bind\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m    465\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39msocket\u001b[38;5;241m.\u001b[39msetsockopt(socket\u001b[38;5;241m.\u001b[39mSOL_SOCKET, socket\u001b[38;5;241m.\u001b[39mSO_REUSEADDR, \u001b[38;5;241m1\u001b[39m)\n\u001b[0;32m--> 466\u001b[0m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43msocket\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mbind\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mserver_address\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    467\u001b[0m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mserver_address \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39msocket\u001b[38;5;241m.\u001b[39mgetsockname()\n",
+      "\u001b[0;31mOSError\u001b[0m: [Errno 48] Address already in use",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[0;31mSystemExit\u001b[0m                                Traceback (most recent call last)",
+      "    \u001b[0;31m[... skipping hidden 1 frame]\u001b[0m\n",
+      "Cell \u001b[0;32mIn[1], line 54\u001b[0m\n\u001b[1;32m     53\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;18m__name__\u001b[39m \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m'\u001b[39m\u001b[38;5;124m__main__\u001b[39m\u001b[38;5;124m'\u001b[39m:\n\u001b[0;32m---> 54\u001b[0m     \u001b[43mapp\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mrun_server\u001b[49m\u001b[43m(\u001b[49m\u001b[43mdebug\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/dash/dash.py:2155\u001b[0m, in \u001b[0;36mDash.run_server\u001b[0;34m(self, *args, **kwargs)\u001b[0m\n\u001b[1;32m   2150\u001b[0m \u001b[38;5;250m\u001b[39m\u001b[38;5;124;03m\"\"\"`run_server` is a deprecated alias of `run` and may be removed in a\u001b[39;00m\n\u001b[1;32m   2151\u001b[0m \u001b[38;5;124;03mfuture version. We recommend using `app.run` instead.\u001b[39;00m\n\u001b[1;32m   2152\u001b[0m \n\u001b[1;32m   2153\u001b[0m \u001b[38;5;124;03mSee `app.run` for usage information.\u001b[39;00m\n\u001b[1;32m   2154\u001b[0m \u001b[38;5;124;03m\"\"\"\u001b[39;00m\n\u001b[0;32m-> 2155\u001b[0m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mrun\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43margs\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43mkwargs\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/dash/dash.py:2053\u001b[0m, in \u001b[0;36mDash.run\u001b[0;34m(self, host, port, proxy, debug, jupyter_mode, jupyter_width, jupyter_height, jupyter_server_url, dev_tools_ui, dev_tools_props_check, dev_tools_serve_dev_bundles, dev_tools_hot_reload, dev_tools_hot_reload_interval, dev_tools_hot_reload_watch_interval, dev_tools_hot_reload_max_retry, dev_tools_silence_routes_logging, dev_tools_prune_errors, **flask_run_options)\u001b[0m\n\u001b[1;32m   2052\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m jupyter_dash\u001b[38;5;241m.\u001b[39mactive:\n\u001b[0;32m-> 2053\u001b[0m     \u001b[43mjupyter_dash\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mrun_app\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m   2054\u001b[0m \u001b[43m        \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2055\u001b[0m \u001b[43m        \u001b[49m\u001b[43mmode\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mjupyter_mode\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2056\u001b[0m \u001b[43m        \u001b[49m\u001b[43mwidth\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mjupyter_width\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2057\u001b[0m \u001b[43m        \u001b[49m\u001b[43mheight\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mjupyter_height\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2058\u001b[0m \u001b[43m        \u001b[49m\u001b[43mhost\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mhost\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2059\u001b[0m \u001b[43m        \u001b[49m\u001b[43mport\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mport\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2060\u001b[0m \u001b[43m        \u001b[49m\u001b[43mserver_url\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mjupyter_server_url\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2061\u001b[0m \u001b[43m    \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m   2062\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/dash/_jupyter.py:329\u001b[0m, in \u001b[0;36mJupyterDash.run_app\u001b[0;34m(self, app, mode, width, height, host, port, server_url)\u001b[0m\n\u001b[1;32m    327\u001b[0m err_q \u001b[38;5;241m=\u001b[39m queue\u001b[38;5;241m.\u001b[39mQueue()\n\u001b[0;32m--> 329\u001b[0m server \u001b[38;5;241m=\u001b[39m \u001b[43mmake_server\u001b[49m\u001b[43m(\u001b[49m\u001b[43mhost\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mport\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mapp\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mserver\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mthreaded\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mprocesses\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m)\u001b[49m\n\u001b[1;32m    330\u001b[0m logging\u001b[38;5;241m.\u001b[39mgetLogger(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mwerkzeug\u001b[39m\u001b[38;5;124m\"\u001b[39m)\u001b[38;5;241m.\u001b[39msetLevel(logging\u001b[38;5;241m.\u001b[39mERROR)\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/werkzeug/serving.py:877\u001b[0m, in \u001b[0;36mmake_server\u001b[0;34m(host, port, app, threaded, processes, request_handler, passthrough_errors, ssl_context, fd)\u001b[0m\n\u001b[1;32m    876\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m threaded:\n\u001b[0;32m--> 877\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43mThreadedWSGIServer\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m    878\u001b[0m \u001b[43m        \u001b[49m\u001b[43mhost\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mport\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mapp\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mrequest_handler\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mpassthrough_errors\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mssl_context\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mfd\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mfd\u001b[49m\n\u001b[1;32m    879\u001b[0m \u001b[43m    \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    881\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m processes \u001b[38;5;241m>\u001b[39m \u001b[38;5;241m1\u001b[39m:\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/werkzeug/serving.py:733\u001b[0m, in \u001b[0;36mBaseWSGIServer.__init__\u001b[0;34m(self, host, port, app, handler, passthrough_errors, ssl_context, fd)\u001b[0m\n\u001b[1;32m    727\u001b[0m             \u001b[38;5;28mprint\u001b[39m(\n\u001b[1;32m    728\u001b[0m                 \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mOn macOS, try disabling the \u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mAirPlay Receiver\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m service\u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m    729\u001b[0m                 \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m from System Preferences -> Sharing.\u001b[39m\u001b[38;5;124m\"\u001b[39m,\n\u001b[1;32m    730\u001b[0m                 file\u001b[38;5;241m=\u001b[39msys\u001b[38;5;241m.\u001b[39mstderr,\n\u001b[1;32m    731\u001b[0m             )\n\u001b[0;32m--> 733\u001b[0m     \u001b[43msys\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mexit\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m)\u001b[49m\n\u001b[1;32m    734\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mBaseException\u001b[39;00m:\n",
+      "\u001b[0;31mSystemExit\u001b[0m: 1",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "    \u001b[0;31m[... skipping hidden 1 frame]\u001b[0m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2095\u001b[0m, in \u001b[0;36mInteractiveShell.showtraceback\u001b[0;34m(self, exc_tuple, filename, tb_offset, exception_only, running_compiled_code)\u001b[0m\n\u001b[1;32m   2092\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m exception_only:\n\u001b[1;32m   2093\u001b[0m     stb \u001b[38;5;241m=\u001b[39m [\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mAn exception has occurred, use \u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mtb to see \u001b[39m\u001b[38;5;124m'\u001b[39m\n\u001b[1;32m   2094\u001b[0m            \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mthe full traceback.\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m'\u001b[39m]\n\u001b[0;32m-> 2095\u001b[0m     stb\u001b[38;5;241m.\u001b[39mextend(\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mInteractiveTB\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_exception_only\u001b[49m\u001b[43m(\u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   2096\u001b[0m \u001b[43m                                                     \u001b[49m\u001b[43mvalue\u001b[49m\u001b[43m)\u001b[49m)\n\u001b[1;32m   2097\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m   2098\u001b[0m     \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m   2099\u001b[0m         \u001b[38;5;66;03m# Exception classes can customise their traceback - we\u001b[39;00m\n\u001b[1;32m   2100\u001b[0m         \u001b[38;5;66;03m# use this in IPython.parallel for exceptions occurring\u001b[39;00m\n\u001b[1;32m   2101\u001b[0m         \u001b[38;5;66;03m# in the engines. This should return a list of strings.\u001b[39;00m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:696\u001b[0m, in \u001b[0;36mListTB.get_exception_only\u001b[0;34m(self, etype, value)\u001b[0m\n\u001b[1;32m    688\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mget_exception_only\u001b[39m(\u001b[38;5;28mself\u001b[39m, etype, value):\n\u001b[1;32m    689\u001b[0m \u001b[38;5;250m    \u001b[39m\u001b[38;5;124;03m\"\"\"Only print the exception type and message, without a traceback.\u001b[39;00m\n\u001b[1;32m    690\u001b[0m \n\u001b[1;32m    691\u001b[0m \u001b[38;5;124;03m    Parameters\u001b[39;00m\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m    694\u001b[0m \u001b[38;5;124;03m    value : exception value\u001b[39;00m\n\u001b[1;32m    695\u001b[0m \u001b[38;5;124;03m    \"\"\"\u001b[39;00m\n\u001b[0;32m--> 696\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43mListTB\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mstructured_traceback\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mvalue\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:559\u001b[0m, in \u001b[0;36mListTB.structured_traceback\u001b[0;34m(self, etype, evalue, etb, tb_offset, context)\u001b[0m\n\u001b[1;32m    556\u001b[0m     chained_exc_ids\u001b[38;5;241m.\u001b[39madd(\u001b[38;5;28mid\u001b[39m(exception[\u001b[38;5;241m1\u001b[39m]))\n\u001b[1;32m    557\u001b[0m     chained_exceptions_tb_offset \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m0\u001b[39m\n\u001b[1;32m    558\u001b[0m     out_list \u001b[38;5;241m=\u001b[39m (\n\u001b[0;32m--> 559\u001b[0m         \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mstructured_traceback\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m    560\u001b[0m \u001b[43m            \u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    561\u001b[0m \u001b[43m            \u001b[49m\u001b[43mevalue\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    562\u001b[0m \u001b[43m            \u001b[49m\u001b[43m(\u001b[49m\u001b[43metb\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mchained_exc_ids\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m  \u001b[49m\u001b[38;5;66;43;03m# type: ignore\u001b[39;49;00m\n\u001b[1;32m    563\u001b[0m \u001b[43m            \u001b[49m\u001b[43mchained_exceptions_tb_offset\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    564\u001b[0m \u001b[43m            \u001b[49m\u001b[43mcontext\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    565\u001b[0m \u001b[43m        \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    566\u001b[0m         \u001b[38;5;241m+\u001b[39m chained_exception_message\n\u001b[1;32m    567\u001b[0m         \u001b[38;5;241m+\u001b[39m out_list)\n\u001b[1;32m    569\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m out_list\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:1396\u001b[0m, in \u001b[0;36mAutoFormattedTB.structured_traceback\u001b[0;34m(self, etype, evalue, etb, tb_offset, number_of_lines_of_context)\u001b[0m\n\u001b[1;32m   1394\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m   1395\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mtb \u001b[38;5;241m=\u001b[39m etb\n\u001b[0;32m-> 1396\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43mFormattedTB\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mstructured_traceback\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m   1397\u001b[0m \u001b[43m    \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mevalue\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43metb\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtb_offset\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mnumber_of_lines_of_context\u001b[49m\n\u001b[1;32m   1398\u001b[0m \u001b[43m\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:1287\u001b[0m, in \u001b[0;36mFormattedTB.structured_traceback\u001b[0;34m(self, etype, value, tb, tb_offset, number_of_lines_of_context)\u001b[0m\n\u001b[1;32m   1284\u001b[0m mode \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mmode\n\u001b[1;32m   1285\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m mode \u001b[38;5;129;01min\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mverbose_modes:\n\u001b[1;32m   1286\u001b[0m     \u001b[38;5;66;03m# Verbose modes need a full traceback\u001b[39;00m\n\u001b[0;32m-> 1287\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43mVerboseTB\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mstructured_traceback\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m   1288\u001b[0m \u001b[43m        \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mvalue\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtb\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtb_offset\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mnumber_of_lines_of_context\u001b[49m\n\u001b[1;32m   1289\u001b[0m \u001b[43m    \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m   1290\u001b[0m \u001b[38;5;28;01melif\u001b[39;00m mode \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mMinimal\u001b[39m\u001b[38;5;124m'\u001b[39m:\n\u001b[1;32m   1291\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m ListTB\u001b[38;5;241m.\u001b[39mget_exception_only(\u001b[38;5;28mself\u001b[39m, etype, value)\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:1140\u001b[0m, in \u001b[0;36mVerboseTB.structured_traceback\u001b[0;34m(self, etype, evalue, etb, tb_offset, number_of_lines_of_context)\u001b[0m\n\u001b[1;32m   1131\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mstructured_traceback\u001b[39m(\n\u001b[1;32m   1132\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[1;32m   1133\u001b[0m     etype: \u001b[38;5;28mtype\u001b[39m,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m   1137\u001b[0m     number_of_lines_of_context: \u001b[38;5;28mint\u001b[39m \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m5\u001b[39m,\n\u001b[1;32m   1138\u001b[0m ):\n\u001b[1;32m   1139\u001b[0m \u001b[38;5;250m    \u001b[39m\u001b[38;5;124;03m\"\"\"Return a nice text document describing the traceback.\"\"\"\u001b[39;00m\n\u001b[0;32m-> 1140\u001b[0m     formatted_exception \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mformat_exception_as_a_whole\u001b[49m\u001b[43m(\u001b[49m\u001b[43metype\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mevalue\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43metb\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mnumber_of_lines_of_context\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1141\u001b[0m \u001b[43m                                                           \u001b[49m\u001b[43mtb_offset\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m   1143\u001b[0m     colors \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mColors  \u001b[38;5;66;03m# just a shorthand + quicker name lookup\u001b[39;00m\n\u001b[1;32m   1144\u001b[0m     colorsnormal \u001b[38;5;241m=\u001b[39m colors\u001b[38;5;241m.\u001b[39mNormal  \u001b[38;5;66;03m# used a lot\u001b[39;00m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:1030\u001b[0m, in \u001b[0;36mVerboseTB.format_exception_as_a_whole\u001b[0;34m(self, etype, evalue, etb, number_of_lines_of_context, tb_offset)\u001b[0m\n\u001b[1;32m   1027\u001b[0m \u001b[38;5;28;01massert\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(tb_offset, \u001b[38;5;28mint\u001b[39m)\n\u001b[1;32m   1028\u001b[0m head \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mprepare_header(\u001b[38;5;28mstr\u001b[39m(etype), \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mlong_header)\n\u001b[1;32m   1029\u001b[0m records \u001b[38;5;241m=\u001b[39m (\n\u001b[0;32m-> 1030\u001b[0m     \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_records\u001b[49m\u001b[43m(\u001b[49m\u001b[43metb\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mnumber_of_lines_of_context\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtb_offset\u001b[49m\u001b[43m)\u001b[49m \u001b[38;5;28;01mif\u001b[39;00m etb \u001b[38;5;28;01melse\u001b[39;00m []\n\u001b[1;32m   1031\u001b[0m )\n\u001b[1;32m   1033\u001b[0m frames \u001b[38;5;241m=\u001b[39m []\n\u001b[1;32m   1034\u001b[0m skipped \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m0\u001b[39m\n",
+      "File \u001b[0;32m~/Documents/MyDocuments/MSc_DS-7029-20275335/venv/lib/python3.8/site-packages/IPython/core/ultratb.py:1098\u001b[0m, in \u001b[0;36mVerboseTB.get_records\u001b[0;34m(self, etb, number_of_lines_of_context, tb_offset)\u001b[0m\n\u001b[1;32m   1096\u001b[0m \u001b[38;5;28;01mwhile\u001b[39;00m cf \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m   1097\u001b[0m     \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[0;32m-> 1098\u001b[0m         mod \u001b[38;5;241m=\u001b[39m inspect\u001b[38;5;241m.\u001b[39mgetmodule(\u001b[43mcf\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mtb_frame\u001b[49m)\n\u001b[1;32m   1099\u001b[0m         \u001b[38;5;28;01mif\u001b[39;00m mod \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m   1100\u001b[0m             mod_name \u001b[38;5;241m=\u001b[39m mod\u001b[38;5;241m.\u001b[39m\u001b[38;5;18m__name__\u001b[39m\n",
+      "\u001b[0;31mAttributeError\u001b[0m: 'tuple' object has no attribute 'tb_frame'"
+     ]
+    }
+   ],
+   "source": [
+    "import dash\n",
+    "import dash_core_components as dcc\n",
+    "import dash_html_components as html\n",
+    "from dash.dependencies import Input, Output\n",
+    "import plotly.express as px\n",
+    "import pandas as pd\n",
+    "\n",
+    "# Sample data\n",
+    "df = pd.DataFrame({\n",
+    "    'x': [1, 2, 3, 4, 5],\n",
+    "    'y': [10, 11, 12, 13, 14]\n",
+    "})\n",
+    "\n",
+    "# Create a Dash app\n",
+    "app = dash.Dash(__name__)\n",
+    "\n",
+    "# Define the layout of the app\n",
+    "app.layout = html.Div([\n",
+    "    html.H1(\"Simple Dash App with Plotly\"),\n",
+    "    \n",
+    "    # Dropdown for selecting a data source (not used in this example)\n",
+    "    dcc.Dropdown(\n",
+    "        id='data-source',\n",
+    "        options=[\n",
+    "            {'label': 'Sample Data', 'value': 'sample'},\n",
+    "        ],\n",
+    "        value='sample'\n",
+    "    ),\n",
+    "    \n",
+    "    # Button to update the scatter plot\n",
+    "    html.Button(\"Update Scatter Plot\", id='update-button', n_clicks=0),\n",
+    "    \n",
+    "    # Scatter plot created with Plotly\n",
+    "    dcc.Graph(id='scatter-plot'),\n",
+    "])\n",
+    "\n",
+    "# Define a callback to update the scatter plot\n",
+    "@app.callback(\n",
+    "    Output('scatter-plot', 'figure'),\n",
+    "    Input('update-button', 'n_clicks')\n",
+    ")\n",
+    "def update_scatter_plot(n_clicks):\n",
+    "    # Create a new scatter plot with random data on each button click\n",
+    "    random_data = pd.DataFrame({\n",
+    "        'x': [1, 2, 3, 4, 5],\n",
+    "        'y': [10, 11, 12, 13, 14]  # You can replace this with your own data\n",
+    "    })\n",
+    "    \n",
+    "    fig = px.scatter(random_data, x='x', y='y', title='Scatter Plot')\n",
+    "    return fig\n",
+    "\n",
+    "# Run the app\n",
+    "if __name__ == '__main__':\n",
+    "    app.run_server(debug=True)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "35f9e262-24f5-4553-aae4-010acca27640",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
